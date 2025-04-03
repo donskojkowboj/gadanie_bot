@@ -11,14 +11,14 @@ bot.setMyCommands([{command: '/start', description: 'первоочередна�
 
 
 const startGame = async (chatId) => {
-    await bot.sendMessage(chatId, 'ща будет игра, число от 1 до 9, угадай')
-    const randomNum = Math.floor(Math.random() * 9)
+    await bot.sendMessage(chatId, 'ща будет игра, число от 0 до 9, угадай')
+    const randomNum = Math.floor(Math.random() * 10)
     chats[chatId] = randomNum;
     await bot.sendMessage(chatId, 'Отгадай ебать', gameOptions);
 }
 
 
-const start = () => {
+const start = async () => {
     bot.on('message', async msg => {
         const text = msg.text;
         const chatId = msg.chat.id;
